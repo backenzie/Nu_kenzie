@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #212529;
+}
+.divContaner {
+  width: 55rem;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  margin: 90px 0px 0px 96px;
+}
+.divInternabutton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+  color: #ffffff;
+  padding-top: 3rem;
+}
+
+.divInternabutton > h3 > strong {
+  color: #fd377e;
+}
+.divInternabutton > p {
+  font-size: 16px;
+}
+.divInternabutton > h2 {
+  font-size: 36px;
+  font-weight: 800px;
+  color: #ffffff;
+}
+#btnIniciar {
+  background-color: #fd377e;
+  color: white;
+  width: 12rem;
+  height: 3rem;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.divInternaImg {
+  width: 70%;
+  height: 100%;
+}
+.divInternaImg > img {
+  width: 27rem;
+  height: 27rem;
+}
