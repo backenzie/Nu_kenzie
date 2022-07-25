@@ -14,6 +14,7 @@ export const Homepage = ({
   listTransactions,
   setListTransactions,
   totalValue,
+  children,
 }) => {
   const [description, setDescription] = useState("");
   const [value, setValue] = useState(0);
@@ -36,7 +37,7 @@ export const Homepage = ({
         <h1>
           <span>Nu</span> Kenzie
         </h1>
-        <button>Inicio</button>
+        {children}
       </div>
       <div className="divHome">
         <div className="divForm">

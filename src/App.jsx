@@ -4,12 +4,22 @@ import imgInitial from "./imgInitial.svg";
 import "./App.css";
 import { useState } from "react";
 
-//<Login source={imgInitial}></Login>;
+//;
 function App() {
+  const [init, setInit] = useState(true);
+
   let [listTransactions, setListTransactions] = useState([
     { description: "Salário recebido", type: "entrada", value: 2500 },
     { description: "Conta de luz", type: "saída", value: -150 },
   ]);
+
+  function changeForFalse() {
+    setInit(false);
+  }
+
+  function changeForTrue() {
+    setInit(true);
+  }
 
   function erase(cards) {
     const newList = listTransactions.filter(
@@ -17,14 +27,17 @@ function App() {
     );
     setListTransactions(newList);
   }
+
   function filterEntrada() {
     const newList = listTransactions.filter((card) => card.type === "entrada");
     setListTransactions(newList);
   }
+
   function filterSaida() {
     const newList = listTransactions.filter((card) => card.type === "saida");
     setListTransactions(newList);
   }
+
   function totalValue() {
     const valorTotal = listTransactions.reduce(
       (acc, card) => acc + card.value,
@@ -32,33 +45,36 @@ function App() {
     );
     return valorTotal;
   }
-  /*function listTransactionsCards() {
-    return listTransactions.map((card, i) => (
-      <li key={i}>
-        <div className="divDescripCard">
-          <h1>{card.description}</h1>
-          <p>{card.type}</p>
-        </div>
-        <div className="divValueCard">
-          <p>RS {card.value}</p>
-          <button onClick={() => erase(card)}>
-            <img src={trashImg} alt="" />
-          </button>
-        </div>
-      </li>
-    ));
-  } */
-  console.log(totalValue());
+
   return (
     <div className="App">
-      <Homepage
-        totalValue={totalValue}
-        erase={erase}
-        listTransactions={listTransactions}
-        setListTransactions={setListTransactions}
-      ></Homepage>
+      {init ? (
+        <Login source={imgInitial}>
+          <button id="btnIniciar" onClick={changeForFalse}>
+            Iniciar
+          </button>
+        </Login>
+      ) : (
+        <Homepage
+          totalValue={totalValue}
+          erase={erase}
+          listTransactions={listTransactions}
+          setListTransactions={setListTransactions}
+        >
+          <button onClick={changeForTrue}>Inicio</button>
+        </Homepage>
+      )}
     </div>
   );
 }
 
 export default App;
+/*
+ <Homepage
+        totalValue={totalValue}
+        erase={erase}
+        listTransactions={listTransactions}
+        setListTransactions={setListTransactions}
+      ></Homepage>
+
+*/

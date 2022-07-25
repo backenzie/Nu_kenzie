@@ -1,5 +1,5 @@
 import "./style.css";
-export const Login = ({ source }) => {
+export const Login = ({ source, children }) => {
   return (
     <div className="divContaner">
       <div className="divInternabutton">
@@ -8,7 +8,7 @@ export const Login = ({ source }) => {
         </h3>
         <h2>Centralize o controle das suas finanças</h2>
         <p>de forma rapida e segura</p>
-        <button id="btnIniciar">Iniciar</button>
+        {children}
       </div>
       <div className="divInternaImg">
         <img src={source} alt="" />
