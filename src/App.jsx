@@ -32,17 +32,16 @@ function App() {
     const newList = listTransactions.filter((card) => card.type === "entrada");
     setListTransactions(newList);
   }
-
+  console.log(listTransactions);
   function filterSaida() {
     const newList = listTransactions.filter((card) => card.type === "saida");
     setListTransactions(newList);
   }
 
   function totalValue() {
-    const valorTotal = listTransactions.reduce(
-      (acc, card) => acc + card.value,
-      0
-    );
+    let valorTotal = listTransactions.reduce((acc, card) => {
+      return acc + parseInt(card.value);
+    }, 0);
     return valorTotal;
   }
 
